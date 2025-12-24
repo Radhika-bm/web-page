@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christmas Tree Animation</title>
+
+    <style>
+      body {
+        margin: 0;
+        background: #020202;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+      }
+
+      svg {
+        width: 350px;
+        overflow: visible;
+      }
+
+      /* Tree outline drawing animation */
+      .tree-line {
+        stroke: #e3b06f;
+        stroke-width: 4;
+        fill: none;
+        stroke-linecap: round;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: draw 4s ease forwards;
+      }
+
+      /* Star */
+      .star {
+        fill: #ffcc66;
+        stroke: #fff3d1;
+        stroke-width: 3;
+        opacity: 0;
+        animation: fadeIn 2s ease forwards 3s;
+      }
+
+      /* Sparkles */
+      .sparkle {
+        fill: #ffffff;
+        opacity: 0;
+        animation: sparkle 2s infinite ease-in-out;
+        mix-blend-mode: luminosity;
+      }
+
+      /* Christmas Message */
+      .endMessage {
+        font-size: 2rem;
+        text-anchor: middle;
+        fill: #ffffff;
+        opacity: 0;
+        letter-spacing: 1px;
+        animation: fadeIn 2s ease forwards 4s;
+      }
+
+      /* Animations */
+      @keyframes draw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <svg viewBox="0 0 300 350">
+      <!-- ⭐ Star -->
+      <polygon
+        class="star"
+        points="150,25 160,50 187,50 165,65 173,90 
+                150,76 127,90 135,65 113,50 140,50"
+      />
+
+      <!-- 🎄 Tree Path -->
+      <path
+        class="tree-line"
+        d="M150 50
+           Q120 100 150 130
+           Q180 160 150 190
+           Q120 220 150 250
+           Q180 280 150 300"
+      />
+
+      <!-- ✨ Sparkle Lights -->
+      <circle
+        class="sparkle"
+        cx="110"
+        cy="120"
+        r="4"
+        style="animation-delay: 1s"
+      ></circle>
+      <circle
+        class="sparkle"
+        cx="190"
+        cy="160"
+        r="4"
+        style="animation-delay: 1.3s"
+      ></circle>
+      <circle
+        class="sparkle"
+        cx="130"
+        cy="210"
+        r="4"
+        style="animation-delay: 1.8s"
+      ></circle>
+      <circle
+        class="sparkle"
+        cx="170"
+        cy="260"
+        r="4"
+        style="animation-delay: 0.5s"
+      ></circle>
+
+      <!-- 🎁 Final Message -->
+      <text x="150" y="340" class="endMessage">Merry Christmas 🎄✨</text>
+      <text
+        x="150"
+        y="365"
+        text-anchor="middle"
+        fill="white"
+        opacity="0.8"
+        font-size="14"
+      >
+        by PRATHI BM ✨❤️✨
+      </text>
+    </svg>
+  </body>
+</html>
